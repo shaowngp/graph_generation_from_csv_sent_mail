@@ -19,7 +19,7 @@ print("date and time:",dateinfo)
 a=pd.read_csv('D:\\Python_test\\tps_report.csv')  #--> sample file path example in windows  
 
 
-# Creating an image dynamic image dile name based on date
+# Creating an  dynamic image file  name based on date
 file_name='D:\\Python_test\\daily_avg_tps_'+dateinfo+'.png'
 print(file_name)
 
