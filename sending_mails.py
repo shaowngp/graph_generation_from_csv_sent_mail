@@ -16,10 +16,10 @@ from email import encoders
 # Creating function/method to send mails with attachment 
 def send_mail():
     # Mail sending from 
-    fromaddr = "xyz@gmail.com"
+    sender = "xyz@gmail.com"
 
     # Mail recipients 
-    toaddr = [ "xyz@outlook.com","abc@gmail.com "] 
+    receiver = [ "xyz@outlook.com","abc@gmail.com "] 
 
     # Mail cc recipients
     ccaddr = ["mnp@outlook.com"]
@@ -28,14 +28,14 @@ def send_mail():
     msg = MIMEMultipart() 
 
     # storing the senders email address   
-    msg['From'] = fromaddr 
+    msg['From'] = sender 
 
     # storing the recipients email address  
-    msg['To'] = ", ".join(toaddr)
+    msg['To'] = ", ".join(receiver)
 
     msg['Cc'] = ", ".join(ccaddr)
 
-    toaddr.extend(ccaddr)
+    receiver.extend(ccaddr)
 
     # storing the subject  
     msg['Subject'] = "Test: Daily Average TPS"
@@ -76,7 +76,7 @@ def send_mail():
 
     # Logging in using my email credentials
 
-    s.login(fromaddr, "XXXXXXX")  #--> Here "XXXXXX" represent your password. You can make it as property base.
+    s.login(sender, "XXXXXXX")  #--> Here "XXXXXX" represent your password. You can make it as property base.
 
     print("After Login to my mail account");  
 
@@ -88,7 +88,7 @@ def send_mail():
     # Important: Beforesending mails, you have to enable "Allow less secure apps: ON" in your google account.
     # Ref. to enable "Allow less secure apps": https://myaccount.google.com/u/1/lesssecureapps?pageId=none
 
-    s.sendmail(fromaddr,toaddr,text) 
+    s.sendmail(sender,receiver,text) 
 
 
     # Closing the session 
